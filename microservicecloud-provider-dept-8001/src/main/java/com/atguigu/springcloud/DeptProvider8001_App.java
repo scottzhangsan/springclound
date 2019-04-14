@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 //@EnableDiscoveryClient
 @SpringBootApplication
-///@EnableEurekaClient   //服务启动会自动注册进入EureKa服务
+@EnableEurekaClient   //服务启动会自动注册进入EureKa服务
 @MapperScan(basePackages={"com.atguigu.springcloud.dao"})
 /**
  * @EnableDiscoveryClient和@EnableEurekaClient共同点就是：
