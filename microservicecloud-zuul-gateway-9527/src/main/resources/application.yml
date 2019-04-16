@@ -1,0 +1,31 @@
+server: 
+  port: 9527
+ 
+spring: 
+  application:
+    name: microservicecloud-zuul-gateway
+ 
+eureka: 
+  client: 
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka  
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true 
+ 
+
+# 测试的访问地址：http://localhost:9527/java3y/mydept/dept/list
+
+zuul: 
+  ignored-services: microservicecloud-dept  # 以后不能再用这个服务名直接访问了
+  prefix: /scott   #公共的前缀
+  #ignored-services: "*"  #多个微服务的名进行忽略
+  routes: 
+    mydept.serviceId: microservicecloud-dept  #//mydept映射microservicecloud-dept这个微服务
+    mydept.path: /mydept/**
+ 
+info:
+  app.name: java3y-microcloud
+  company.name: www.baidu.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

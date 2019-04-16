@@ -14,7 +14,7 @@ import com.atguigu.springcloud.entities.Dept;
  *接口加注解完成访问微服务
  *fallbackFactory交给 DeptClientServiceFallBackFactory统一进行处理
  */
-@FeignClient(value = "MICROSERVICECLOUD-DEPT",fallbackFactory = DeptClientServiceFallBackFactory.class)
+@FeignClient(value = "MICROSERVICECLOUD-DEPT",path="/**",fallbackFactory = DeptClientServiceFallBackFactory.class)
 /**
  *  Feign本身自动实现了负载均衡
  * @author yzhang98
